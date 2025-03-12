@@ -11,11 +11,9 @@ class CreateProfileProvider extends ChangeNotifier {
   Color profileColor = Color.fromRGBO(
     Random().nextInt(256),
     Random().nextInt(256),
-    Random  ().nextInt(256),
+    Random().nextInt(256),
     1,
   );
-
-  String profileName = '';
 
   String get firstCharOfProfileName =>
       profileName.isNotEmpty ? profileName[0] : '';

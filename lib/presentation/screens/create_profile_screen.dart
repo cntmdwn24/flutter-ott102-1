@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:ott102/common/color.dart';
+import 'package:ott102/data/repositories/shared_pref_repository.dart';
+import 'package:ott102/domain/use_case/profile_use_case.dart';
 import 'package:ott102/presentation/providers/create_profile_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CreateProfileScreen extends StatefulWidget {
-   const CreateProfileScreen({super.key});
+  CreateProfileScreen({super.key});
 
   @override
   State<CreateProfileScreen> createState() => _CreateProfileScreenState();
 
-  final CreateProfileScreen provider = CreateProfileProvider;
+  final CreateProfileProvider provider = CreateProfileProvider(ProfileUseCase(SharedPrefRepository())),
+  );
 }
 
 class _CreateProfileScreenState extends State<CreateProfileScreen> {
@@ -37,7 +41,7 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
             ),
           ],
         ),
-        body: Column()
+        body: Column(),
       ),
     );
   }
